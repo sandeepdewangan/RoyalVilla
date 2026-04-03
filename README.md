@@ -78,3 +78,30 @@ Body → actual data (JSON, HTML, etc.)
 5. Authentication Type: None
 6. ☑️ Unable OpenAPI support
 7. ☑️ Use controllers
+
+## Scalar
+In ASP.NET Core, Scalar is a modern, open-source API documentation tool used as an interactive alternative to Swagger UI. It renders OpenAPI/Swagger specifications into a clean, developer-friendly interface with built-in testing capabilities and code snippet generation for over 25 languages.
+
+STEP 01: Installation:
+
+Using NuGet package manager install package: `Scalar.AspNetCore`
+
+STEP 02: `Program.cs`
+
+```cs
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+
+    // For opening scalar API
+    app.MapScalarApiReference();
+}
+```
+STEP 03: By default API projects opened in Command promt. To force to open in Browser do following settings.
+
+* Go to properties of project
+* Under debug, goto open debug launch profiles UI and check launch browser.
+
+Now scalar can be accessed via, https://localhost:7138/scalar
+
+To navigate automatically when project is started, go to debug launch profiles and update the Url field to `scalar`
