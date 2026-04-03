@@ -105,3 +105,18 @@ STEP 03: By default API projects opened in Command promt. To force to open in Br
 Now scalar can be accessed via, https://localhost:7138/scalar
 
 To navigate automatically when project is started, go to debug launch profiles and update the Url field to `scalar`
+
+## Database Connection
+
+**Install Packages**
+
+`Npgsql.EntityFrameworkCore.PostgreSQL` 
+`Microsoft.EntityFrameworkCore.Tools`
+
+`appsettings.json`
+
+```json
+"ConnectionStrings": {
+  "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=RoyalVilla;Trusted_Connection=True;MultipleActiveResultSets=true"
+}
+```
