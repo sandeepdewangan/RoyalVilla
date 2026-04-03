@@ -117,6 +117,13 @@ To navigate automatically when project is started, go to debug launch profiles a
 
 ```json
 "ConnectionStrings": {
-  "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=RoyalVilla;Trusted_Connection=True;MultipleActiveResultSets=true"
+  "DefaultConnection": "Host=localhost;Port=5432;Database=RoyalVilla;Username=postgres;Password=sandeep"
 }
+```
+
+**Migration**
+
+```
+add-migration Intial
+update-database
 ```
