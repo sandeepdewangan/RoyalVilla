@@ -127,3 +127,58 @@ To navigate automatically when project is started, go to debug launch profiles a
 add-migration Intial
 update-database
 ```
+
+## DTO Class
+
+DTO (Data Transfer Object) is necessary to control what data goes in and out of your API.
+* Hide sensitive fields (Password, Tokens, etc.)
+* Prevent over-posting attacks
+* What to send or what not to
+
+## Automapper
+If suppose i have VillaCreateDTO model inputs, and i want to map to Db binded Villa Model i can achive without automapper like below.
+
+```cs
+Villa villa = new Villa()
+{
+    Name = villaDto.Name,
+    Details = villaDto.Details,
+    ImageUrl = villaDto.ImageUrl,
+    Occupancy = villaDto.Occupancy,
+    Sqft = villaDto.Sqft,
+    Rate = villaDto.Rate,
+    CreatedDate = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc),
+};
+```
+But with automapper i can do it easily,
+
+Step 01: Install package automapper.
+
+Step 02: program.cs
+
+````cs
+builder.Services.AddControllers();
+builder.Services.AddOpenApi();
+
+// add auto mapper
+builder.Services.AddAutoMapper(o =>
+{
+   o.CreateMap<Villa, VillaCreateDTO>().ReverseMap();
+});
+```
+
+Step 03: Inject using DI
+
+```cs
+private readonly IMapper _mapper;
+public VillaController(IMapper mapper)
+{
+    _mapper = mapper;
+}
+```
+
+Step 04: Usage
+
+```cs
+ Villa villa = _mapper.Map<Villa>(villaDto);
+ ```

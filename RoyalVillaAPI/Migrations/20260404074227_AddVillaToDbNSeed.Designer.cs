@@ -12,8 +12,8 @@ using RoyalVillaAPI.Data;
 namespace RoyalVillaAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260404053024_AddVillaTableToDb")]
-    partial class AddVillaTableToDb
+    [Migration("20260404074227_AddVillaToDbNSeed")]
+    partial class AddVillaToDbNSeed
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,12 +55,38 @@ namespace RoyalVillaAPI.Migrations
                     b.Property<int>("Sqft")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
                     b.ToTable("Villa");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedDate = new DateTime(2026, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Details = "Lunxury villa with private pool",
+                            ImageUrl = "https://cdn-6151b331c1ac189188d8dcd4.closte.com/wp-content/uploads/2021/11/andaman-private-pool-villa-cs-02.jpg",
+                            Name = "Royal Villa",
+                            Occupancy = 6,
+                            Rate = 15000.0,
+                            Sqft = 4000,
+                            UpdatedDate = new DateTime(2026, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedDate = new DateTime(2026, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Details = "Garden villa with garden",
+                            ImageUrl = "https://cdn-6151b331c1ac189188d8dcd4.closte.com/wp-content/uploads/2021/11/andaman-private-pool-villa-cs-02.jpg",
+                            Name = "Garden Villa",
+                            Occupancy = 6,
+                            Rate = 12000.0,
+                            Sqft = 2000,
+                            UpdatedDate = new DateTime(2026, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
+                        });
                 });
 #pragma warning restore 612, 618
         }
