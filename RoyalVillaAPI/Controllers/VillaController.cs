@@ -59,6 +59,13 @@ namespace RoyalVillaAPI.Controllers
                     return BadRequest("Villa data is required.");
                 }
 
+                // Check for villa name already exists or not
+                var duplicateVilla = await _db.Villa.FirstOrDefaultAsync(x => x.Name.ToLower() == villaDto.Name.ToLower());
+                if (duplicateVilla != null)
+                {
+                    return Conflict($"Villa with {villaDto.Name} already exists.");
+                }
+
                 Villa villa = _mapper.Map<Villa>(villaDto);
                 villa.CreatedDate = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
 
