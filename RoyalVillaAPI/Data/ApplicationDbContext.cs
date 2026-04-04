@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RoyalVillaAPI.Data.Models;
 
 namespace RoyalVillaAPI.Data
 {
@@ -8,5 +9,8 @@ namespace RoyalVillaAPI.Data
         {
 
         }
+
+        public DbSet<Villa> Villa { get; set; }
+
     }
 }
