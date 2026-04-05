@@ -1,4 +1,4 @@
-﻿namespace RoyalVillaAPI.Data.Models.DTO
+﻿namespace RoyalVilla.DTO
 {
     public class VillaDTO
     {

@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using RoyalVilla.DTO;
 using RoyalVillaAPI.Data;
 using RoyalVillaAPI.Data.Models;
-using RoyalVillaAPI.Data.Models.DTO;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
