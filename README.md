@@ -182,3 +182,7 @@ Step 04: Usage
 ```cs
  Villa villa = _mapper.Map<Villa>(villaDto);
  ```
+
+ ## Starting Multiple Projects
+
+ Goto Solution Properties -> Select Multiple startup projects -> select the project to run parallel.
