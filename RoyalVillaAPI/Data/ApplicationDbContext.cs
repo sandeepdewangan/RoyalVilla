@@ -11,6 +11,7 @@ namespace RoyalVillaAPI.Data
         }
 
         public DbSet<Villa> Villa { get; set; }
+        public DbSet<User> Users { get; set; }
 
         // OnModelCreating - Tell EF Core how to build the database structure from your models.
         protected override void OnModelCreating(ModelBuilder modelBuilder)
